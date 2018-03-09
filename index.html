@@ -14,37 +14,29 @@
   <body>
     <h2>Self Movie List</h2>
     <div class="container">
-    <form action="" method="post">
+    <form action="create.php" method="post">
       <div class="form-group">
           <label for="title">Title :</label>
-          <input class="form-control" type="text" id="title" name="title" placeholder="Insert Movie Title">
+          <input class="form-control" type="text" id="title" name="title" placeholder="Insert Movie Title" required>
       </div>
       <div class="form-group">
           <label for="description">Description :</label>
-          <textarea class="form-control" id="description" name="description" rows="5" placeholder="What is the movie about?"></textarea>
+          <textarea class="form-control" id="description" name="description" rows="5" placeholder="What is the movie about?" required></textarea>
       </div>
       <div class="form-group">
           <label for="date">Release Date :</label>
-          <input class="form-control" type="date" id="releasedate" name="releasedate" placeholder="Enter the release date">
+          <input class="form-control" type="date" id="releasedate" name="releasedate" placeholder="Enter the release date" required>
       </div>
       <div class="form-group">
           <label for="rating">Rating :</label>
-          <input class="form-control" type="number" id="rating" name="rating" placeholder="Rate the movie by yourself!">
+          <input class="form-control" type="number" id="rating" name="rating" placeholder="Rate the movie by yourself!" required>
       </div>
       <div class="form-group">
           <label for="favoritechar">Favorite Character :</label>
-          <input class="form-control" type="text" id="favoritechar" name="favoritechar" placeholder="What is your favorite character in the movie?">
+          <input class="form-control" type="text" id="favoritechar" name="favoritechar" placeholder="What is your favorite character in the movie?" required>
       </div>
       <button type="submit" class="btn btn-primary" name="input">Submit</button>
     </form>
   </div>
   </body>
 </html>
-
-<?php
-  require_once('connect.php');
-  if(isset($_POST) && !empty($_POST)){
-    $query = "INSERT INTO moviehistory(title,description,release_date,rating,favorit_character) VALUES ('$_POST[title]','$_POST[description]','$_POST[releasedate]','$_POST[rating]','$_POST[favoritechar]')";
-    $result = pg_query($query);
-  }
- ?>
